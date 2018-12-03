@@ -1,0 +1,189 @@
+			.hidden {
+				display: none;/*inherit;*/
+			}
+
+
+			ul {
+			    list-style-type: none;
+			    margin: 0;
+			    padding: 0;
+			    overflow: hidden;
+			    background-color: #0c3eba;
+			}
+
+			li {
+			    float: left;
+			}
+
+			li a {
+			    display: block;
+			    color: white;
+			    text-align: center;
+			    padding: 14px 16px;
+			    text-decoration: none;
+			}
+
+			/* Change the link color to #111 (black) on hover */
+			li a:hover {
+			    background-color: #050b2e;
+			}
+
+
+			.head{
+				color: white;
+				background-color:#33343d;
+				padding:1em;
+				text-transform: capitalize;
+				
+
+
+			}
+
+			body{
+				background-color:#e6e4e2;
+			}
+
+			.loggedin {
+				position: relative;
+				/*top: -10px;*/
+				color:white;
+				background-color: #0c3eba;
+				float:right;
+    			border-radius: 15px 65px;
+			}
+			
+			.toolbar{
+				margin:-3px -5px 0px -5px;
+				padding:5px 5px 0px 5px;
+			}
+
+
+			.form-inline { 
+			  display: flex;
+			  flex-flow: row wrap;
+			  align-items: center;
+			}
+
+			/* Add some margins for each label */
+			.form-inline label {
+			  margin: 5px 10px 5px 0;
+			}
+
+			/* Style the input fields */
+			.form-inline /*input,select, textarea*/ {
+			  vertical-align: middle;
+			  margin: 5px 10px 5px 0;
+			  padding: 10px;
+			  background-color: #fff;
+			  border: 1px solid #ddd;
+			}
+
+			/* Style the submit button */
+			#sub {
+			  padding: 10px 20px;
+			  background-color: dodgerblue;
+			  border: 1px solid #ddd;
+			  color: white;
+			}
+
+			#sub:hover {
+			  background-color: royalblue;
+			}
+			
+			#job_submit {
+			  padding: 10px 20px;
+			  background-color: dodgerblue;
+			  border: 1px solid #ddd;
+			  color: white;
+			}
+
+			#job_submit:hover {
+			  background-color: royalblue;
+			}
+			
+			#subLogin {
+			  padding: 10px 20px;
+			  background-color: dodgerblue;
+			  border: 1px solid #ddd;
+			  color: white;
+			}
+
+			#subLogin:hover {
+			  background-color: royalblue;
+			}
+			/* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
+			
+
+			  .form-inline {
+			    flex-direction: column;
+			    align-items: stretch;
+			  }
+			  
+			  input, textarea, select{
+			  	border-radius:5px;
+			  	}
+			
+			.dashbar button {
+					margin:7px;
+					float: right;
+				}
+
+			.dashbar {
+  				height: 80px;
+  				color: #2e3135;
+  				background-color: #c3c3c3;
+  				min-width: 100%;
+				position:relative;
+			}
+
+			.dashbar h1 {
+				padding:20px;
+  				font-variant: small-caps;
+  				font-weight: bolder;
+  				display:inline;
+			}
+		
+			#app {
+			  padding: 10px 20px;
+			  background-color: limegreen;
+			  border: 1px solid #ddd;
+			  color: white;
+			  margin:7px;
+			  float: right;
+			}
+
+			#app:hover {
+			  background-color: green;
+			}
+			
+			.main{
+				padding: 0% 20%;
+			}
+			
+			.jobArea{
+				background-color: white;
+				padding: 20px;
+			}
+			
+			.jobArea h3{
+				display: flex;
+			  	flex-flow: row wrap;
+			  	vertical-align: middle;
+			  	align-items: center;
+			  	flex-direction: column;
+			}
+			
+			.desc{
+				display: flex;
+			  	flex-flow: row wrap;
+			  	vertical-align: middle;
+			  	align-items: center;
+			  	flex-direction: column;
+			}
+			
+			.fieldError {
+				margin: 5px 10px 5px 0;
+			  	padding: 10px;
+			  	background-color: #fff;
+				border: 2px solid red;
+			}
