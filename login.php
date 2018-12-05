@@ -10,7 +10,7 @@ require 'hireme.php';
         $username_=filter_var(($_POST['username']), FILTER_VALIDATE_EMAIL);
         $password_=htmlentities($_POST['password']);
 
-        $password_ = hash('sha224',$password_);
+        $password_ = hash('sha512',$password_);
         
         $query="SELECT * FROM (SELECT * FROM Users WHERE password='$password_' and email='$username_') as info";
         $find = $conn->query($query);

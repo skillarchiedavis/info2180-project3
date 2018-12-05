@@ -4,6 +4,12 @@
   {
     header('Location: logout.php');
   }
+  if(isset($_SESSION['email'])){
+	if($_SESSION['email'] != 'admin@hireme.com'){
+  		header('Location: ' . $_SERVER['HTTP_REFERER']);
+		die;
+	}
+  }
 ?>
 <!DOCTYPE html>
 
@@ -11,6 +17,7 @@
 	
 	<head>
 		<script src="job.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
 		<link rel="stylesheet" type="text/css" href="form.css">
 	</head>
 
@@ -40,7 +47,7 @@
 
 			<h1>New Job</h1>
 		<div class="main">
-			<form method = "POST" action = "record_job.php" onsubmit="return validate();">
+			<form method="POST" action="record_job.php" onsubmit="return val()">
 				
 
 				<div class="field">
@@ -50,20 +57,20 @@
 				<br>
 
 				<div class="field">
-					<label>Job Description:</label><br><textarea name = "job_description" class="form-inline" id="desc" rows="4" cols="50"></textarea>
+					<label>Job Description:</label><br><textarea name ="job_description" class="form-inline" id="desc" rows="4" cols="50"></textarea>
 				</div>
 
 				<br>
 
 				<div class="field">
-					<label>Category:</label><br><select class="form-inline" name="cateogry" id="category" required>
+					<label>Category:</label><br><select class="form-inline" name="category" id="category" required>
 						<option value="" disabled selected class="hidden">Select option</option>
-						<option value="a">Sales & Marketing</option>
-						<option value="b">Programming</option>
-						<option value="c">Business & Management</option>
-						<option value="d">Design</option>
-						<option value="e">Customer Support</option>
-						<option value="f">DevOps & Sysadmin</option>
+						<option value="Sales & Marketing">Sales & Marketing</option>
+						<option value="Programming">Programming</option>
+						<option value="Business & Management">Business & Management</option>
+						<option value="Design">Design</option>
+						<option value="Customer Support">Customer Support</option>
+						<option value="DevOps & Sysadmin">DevOps & Sysadmin</option>
 					</select>
 				</div>
 
@@ -85,7 +92,7 @@
 
 			</form>
 
-			<input class="form-inline" name="job_submit" id="job_submit" type="submit"></input>
+			<input class="form-inline" name="job_submit" id="job_submit" value="Submit" type="submit"></input>
 		</div>
 	</div>
 	</body>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('session.php');
 if (!isset($_SESSION['email']))
   {
@@ -45,13 +46,19 @@ echo "
 #echo "Job ID: ";
 $j = htmlspecialchars($_GET['j']);
 $a = htmlspecialchars($_GET['a']);
+
 #echo " ".$j;
 #echo " applied= ".$a;
 
 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 $findJob = "SELECT * FROM `Jobs` WHERE id='$j'";
+$useremail = $_SESSION['login_user'];
+$findUserID = "SELECT id FROM `Users` WHERE email='$useremail'";
 $sql = $conn->query($findJob);
 $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+$usql = $conn->query($findUserID);
+$uresults = $usql->fetchAll(PDO::FETCH_ASSOC);
 
 if($a==="true"){
   foreach($results as $job){
@@ -86,11 +93,13 @@ if($a==="true"){
   }
   die();
 }
+
 foreach($results as $job){
+  $_SESSION['jid'] = $job['id']; 
     echo ""
     ."<div class='main'>"
     ."<div class='jobArea'>"
-    ."<button id='app'>Apply Now</button>"
+    ."<a href='apply.php'><button id='app'>Apply Now</button></a>"
     ."<h1>"
     .$job['job_title']
     ."</h1>"

@@ -55,7 +55,7 @@ Hours).
 				<div class="dashbar">
 					<br>
 					<h1>dashboard</h1>
-					<button id="sub" type="submit">Post a Job</button>
+					<a href="job.php"><button id="sub" type="submit">Post a Job</button></a>
 				</div>
 				<hr>
 				<br>

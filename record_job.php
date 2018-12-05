@@ -9,14 +9,15 @@ $company = $_POST['company'];
 $location = $_POST['location'];
 $category = $_POST['category'];
 
+
 try{
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
    
     
-    $statement = "INSERT INTO Jobs (job_title, job_description, category, company_name, company_location) VALUES(?,?,?,?,?,?)";
-    $job = $conn->prepare($statement)->execute([$title, $job_description, $category, $company, $location, now()]);
+    $statement = "INSERT INTO Jobs (job_title, job_description, category, company_name, company_location, date_posted) VALUES(?,?,?,?,?,?)";
+    $job = $conn->prepare($statement)->execute([$title, $job_description, $category, $company, $location, date("Y-m-d")]);
+    header('Location: dash.php');
 
-    
     if($job){
         $sql = "SELECT * FROM Jobs";
         
@@ -29,6 +30,7 @@ try{
             
         }
         echo "</table>";
+        header('Location: dash.php');
     }
 }
 

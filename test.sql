@@ -7,7 +7,7 @@ CREATE TABLE Jobs_Applied_For (
     primary key(`id`)
 );
 
-INSERT into `Jobs_Applied_For` VALUES ('', '1', '14080', '2018-12-02');
+INSERT into `Jobs_Applied_For` VALUES ('', '1', '1', '2018-12-02');
 
 
 

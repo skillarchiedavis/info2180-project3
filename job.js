@@ -16,7 +16,7 @@ var location = document.getElementById("location");
 		validate();
 		
 		
-		console.log("test1");
+		
 			
 			
 			
@@ -56,36 +56,38 @@ var location = document.getElementById("location");
 						var error = 0;
 						if(title.classList.contains("fieldError")){
 							error+=1;
-							return false;
+							
 						}
 						
 						if(desc.classList.contains("fieldError")){
 							error+=1;
-							return false;
+							
 						}
 						
 						if(category.classList.contains("fieldError")){
 							error+=1;
-							return false;
+							
 						}
 						
 						if(company.classList.contains("fieldError")){
 							error+=1;
-							return false;
+							
 						}
 						
 						if(location.classList.contains("fieldError")){
 							error+=1;
-							return false;
+							
 						}
 						
 						
 						if(error>0){
 							alert("Please ensure the information you have entered is correct");
-							return false
+							//return false
 						}
 						else{
-							return true;
+							console.log("test1");
+							redirect();
+							//return true;
 						}
 					};
 					
@@ -109,6 +111,27 @@ var location = document.getElementById("location");
                 location.classList.add("form-inline");
 			}
 
+
+	function redirect(){
+        var url = "record_job.php"
+        var http = new XMLHttpRequest();
+        
+        var term = "?title=";
+        term += title.value;
+        var params = 'title='+title.value+'&job_description='+desc.value+'&category='+category.value+'&company='+company.value+'&location='+location.value;
+		http.open('POST', url, true);
+
+		//Send the proper header information along with the request
+		http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+		http.onreadystatechange = function() {//Call a function when the state changes.
+    		if(http.readyState == 4 && http.status == 200) {
+        		alert("New Job added!");
+        		window.location.href = "dash.php";
+    		}
+		}
+		http.send(params);
+	}
 };		
 
 

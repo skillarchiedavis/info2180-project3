@@ -44,13 +44,13 @@ if($k === "userJobs" && $all == "true"){
             </style>
     ";
     
-    $link = "\"jobDetails.php?j=";
+    $send = "\"jobDetails.php?j=";
     echo "<table cellspacing='20' cellpadding='10'>";
 
     echo "<th>".'<b>#</b>'."</th>"."<th>".'Company'."</th>"."<th>".'Job Title'."</th>"."<th>".'Category'."</th>"."<th>".'Application Date'."</th>";
     foreach($results as $row){
-        $j=$row['id'];
-        $link=$link.$j."&a=true\"";
+        $j=$row['job_id'];
+        $link=$send.$j."&a=true\"";
         echo "<tr id='button' class='tr' onclick='window.location.href = $link';>"."<td>".$row['id']."</td>" . ' ' ."<td>".$row['company_name']."</td>" . ' ' . "<td>".$row['job_title']."</td>" . ' ' . "<td>".$row['category']."</td>" . ' ' . "<td>".$row['date_applied']."</td>"."</tr>";
     }
     echo "</table>";

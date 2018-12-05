@@ -4,6 +4,12 @@
   {
     header('Location: logout.php');
   }
+  if(isset($_SESSION['email'])){
+	if($_SESSION['email'] != 'admin@hireme.com'){
+  		header('Location: ' . $_SERVER['HTTP_REFERER']);
+		die;
+	}
+  }
 ?>
 <!DOCTYPE html>
 
